@@ -78,14 +78,10 @@ function cargandoPlaylist() {
 
 
 }
-   const elegirTema= prompt('Elija un numero de tema (1,2,3,4,5)')
-   const temaUno = '1';
-   const temaDos ='2';
-   const temaTres = '3';
-   const temaCuatro = '4';
-   const temaCinco = '5';
+   const elegirTema= parseInt(prompt('Elija un numero de tema (1,2,3,4,5)'))
+ 
 
-   if (elegirTema === temaUno|| elegirTema === temaDos|| elegirTema === temaTres|| elegirTema ===temaCuatro|| elegirTema === temaCinco) {
+   if (elegirTema <=5) {
 
     console.log('reproduciendo su tema...')
     
