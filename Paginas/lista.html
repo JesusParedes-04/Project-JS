@@ -1,35 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="../style.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    </head>
+</head>
+
+<body style="background-color: #260101;">
+
+
+<header class="container-fluid headerReproductor">
     
-<body style="background-color: red;">
-    
-    <div class="card" style="width: 18rem;">
+    <h1> Rock Clásico</h1>
+</header>
+
+    <main class="card container-fluid pb-4" style="width: 18rem;">
         <div class="card-header">
-          Clásicos
+            Mix Diario 1
         </div>
         <ul class="list-group list-group-flush">
-            <button type="button" id="btnReproductor">  <li class="list-group-item">Reproduccion Aleatoria</li></button>
-            <button id="cancionUno">       <li class="list-group-item">The Beatles - Let it Be</li></button>
-            <button>       <li class="list-group-item">Rolling Stones - Angie</li></button>
-            <button>       <li class="list-group-item">Led Zeppelin - Stairway to heaven</li></button>
-            <button>       <li class="list-group-item">Rod Steward- Young turks</li></button>
+
+            <button type="button" id="btnReproductor">
+                <li class="list-group-item bg-danger aleatorio2"> 
+                    <h6>Reproduccion Aleatoria</h6> </li>
+            </button>
+            <button id="cancionUno">
+                <li class="list-group-item">The Beatles - Let it Be</li>
+            </button>
+            <button id="cancionDos">
+                <li class="list-group-item">Rolling Stones - Angie</li>
+            </button>
+            <button id="cancionTres">
+                <li class="list-group-item">Led Zeppelin - Stairway to heaven</li>
+            </button>
+            <button id="cancionCuatro">
+                <li class="list-group-item">Rod Steward- Young turks</li>
+            </button>
+            <button id="cancionCinco">
+                <li class="list-group-item">John Lennon - Imagine</li>
+            </button>
 
         </ul>
-      </div>
+    </main>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
-<script src="/main.js"></script>
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="/main.js"></script>
 </body>
+
 </html>

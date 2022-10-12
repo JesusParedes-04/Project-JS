@@ -15,8 +15,7 @@ function login () {
         window.location = "plataforma.html";
     }
     else {
-    console.log('intente nuevamente')
-
+    alert('intente nuevamente')
 }}
 
 //----------------------------------------------------------- Reproductor
@@ -35,45 +34,73 @@ let listaPlaylist = [
         Grupo: 'Rolling Stones',
         Cancion: 'Angie'
     },
-    {
-        Grupo: 'John Lennon',
-        Cancion: 'Imagine'
-    },
+
     {
         Grupo: 'Led Zeppelin',
         Cancion: 'Stairway to heaven'
     },
-    {
-        Grupo: 'The Doors',
-        Cancion: 'The End'
-    },
+
     {
         Grupo: 'Rod Stewart',
         Cancion: 'Young Turks'
     },
+
+    {
+        Grupo: 'John Lennon',
+        Cancion: 'Imagine'
+    },
   
   ]
+
+//----------------------------------------------------------- Asociando con querySelector
+
 
 const cancionUno = document.querySelector('#cancionUno')
 cancionUno.addEventListener('click', ()=>{
 
     const resultado = listaPlaylist.find(elemento => elemento.Cancion === 'Let it be')
-console.log(resultado)
+alert ('reproduciendo... ' +  resultado.Grupo + '-' + resultado.Cancion)
 });
     
+const cancionDos = document.querySelector('#cancionDos')
+cancionDos.addEventListener('click', ()=>{
+
+    const resultado = listaPlaylist.find(elemento => elemento.Cancion === 'Angie')
+    alert ('reproduciendo... ' +  resultado.Grupo + '-' + resultado.Cancion)
+});
+
+const cancionTres = document.querySelector('#cancionTres')
+cancionTres.addEventListener('click', ()=>{
+
+    const resultado = listaPlaylist.find(elemento => elemento.Cancion === 'Stairway to heaven')
+    alert ('reproduciendo... ' +  resultado.Grupo + '-'  + resultado.Cancion)
+});
+
+const cancionCuatro = document.querySelector('#cancionCuatro')
+cancionCuatro.addEventListener('click', ()=>{
+
+    const resultado = listaPlaylist.find(elemento => elemento.Cancion === 'Young Turks')
+    alert ('reproduciendo... ' +  resultado.Grupo + '-'  + resultado.Cancion)
+});
 
 
+const cancionCinco = document.querySelector('#cancionCinco')
+cancionCinco.addEventListener('click', ()=>{
 
-
+    const resultado = listaPlaylist.find(elemento => elemento.Cancion === 'Imagine')
+    alert ('reproduciendo... ' +  resultado.Grupo + '-'  + resultado.Cancion)
+});
 
 playReproductor.addEventListener('click', ()=>{
 
     let aleatorio = Math.floor(Math.random()*listaPlaylist.length);
     let cancion = listaPlaylist[aleatorio];
-    console.log(cancion)
+    alert ('reproduciendo... ' +  cancion.Grupo + '-' + cancion.Cancion)
 
 })
 
+
+I//Codigo viejo -------------
 
 
 // class theBeatles{

@@ -12,12 +12,26 @@ box-sizing: border-box;
 
 }
 
+.platformPrincipal,.headerReproductor {
+    margin: 3rem auto;
+}
+.headerReproductor, .platformPrincipal h1{
+text-align: center;
+color: white;
+
+}
+
+.card {
+    margin: auto auto;
+}
 .contenedorCard {
 margin: 12rem 50rem
 ;
 
 }
-
+.card-header{
+    text-align: center;
+}
 .contenedorForm{
  
     width: 50%;
@@ -31,3 +45,10 @@ color: white;
 
 }
 
+
+.aleatorio2 h6{
+    text-align: center;
+text-transform: uppercase;
+font-weight: bolder;
+    color: white;
+}
