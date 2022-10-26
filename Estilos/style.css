@@ -1,0 +1,68 @@
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+
+body{
+
+    background-color: rgb(64, 18, 18);
+}
+
+
+.card {
+    margin: auto auto;
+
+}
+.contenedorCard {
+margin: 12rem auto
+;
+
+}
+.card-header{
+    text-align: center;
+}
+.contenedorForm{
+   margin: 8rem auto;
+   width: 20%;
+}
+
+.form-label, .form-check-label {
+color: white;
+
+}
+
+.material-symbols-outlined{
+    font-size: 5rem;
+}
+
+
+/* Modo oscuro */
+
+.modoPantalla{
+background-color: black;
+}
+
+h1, p{color: white;}
+
+.playlist{
+    margin: 10rem auto;
+
+}
+
+.aboutcontainer{
+    margin:5rem;
+}
+
+@media(min-width:576px)and(max-width:768px){
+    .contenedorForm{
+        width: 50%;
+
+}}
+
+@media(max-width:575px){
+    .contenedorForm{
+        width: 80%;
+
+}}
