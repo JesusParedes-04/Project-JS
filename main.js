@@ -470,7 +470,7 @@ if (localStorage.getItem('darkKey') === 'true') {
 
 class listaMusica {
 
-constructor(id,nombre, precio, cantidad){
+constructor(id,nombre, precio){
     this.id= id
 this.nombre= nombre;
 this.precio= precio;
@@ -482,55 +482,46 @@ const clapton = new listaMusica (1,'Clapton', 800)
 const Beatles = new listaMusica (2,'The Beatles', 1200)
 const Rolling = new listaMusica (3,'Rolling Stone', 900)
 
+//Array con todo el catalogo de productos
 const listaGrupos = [clapton, Rolling, Beatles]
 
-let listaCarrito = []; // Carrito se inicializa vacio porque inicia con 0 productos
+// Array Carrito se inicializa vacio porque inicia con 0 productos
+let listaCarrito = []; 
 
+
+// Creando funciones
+
+const contenedorCarrito = document.getElementById('contenedorCarrito')
 
 function agregarCarrito() {
-    listaCarrito.push(Beatles.precio)
-    console.log(listaCarrito);
-}
-
-function agregarCarrito2() {
-    listaCarrito.push(Rolling.precio)
-    console.log(listaCarrito);
-}
-
-function agregarCarrito3() {
-    listaCarrito.push(clapton.precio)
+    listaGrupos.forEach ((item) => item.cantidad++)
+    listaCarrito.push(Beatles)
     console.log(listaCarrito);
 }
 
 const btnCarrito = document.querySelector('#btnCarrito')
-btnCarrito.addEventListener('click', agregarCarrito)
+if(btnCarrito){ 
+btnCarrito.addEventListener('click', ()=> {
+agregarCarrito(2)
+mostrarCarrito(2)
+}) }
 
-const btnCarrito2 = document.querySelector('#btnCarrito2')
-btnCarrito2.addEventListener('click', agregarCarrito2)
+const mostrarCarrito = () => {
+    contenedorCarrito.innerHTML=" "
+    listaCarrito.forEach((producto)=> {
+const card = document.createElement('div');
+card.innerHTML= `
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    The Beatles
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"> ${producto.cantidad} <//li>
+    <li class="list-group-item"> ${producto.precio} <//li>
+  </ul>
+</div>
 
-const btnCarrito3 = document.querySelector('#btnCarrito3')
-btnCarrito3.addEventListener('click', agregarCarrito3)
-
-// const contenedorCarrito = document.querySelector('#contenedorCarrito')
-
-// const verCarrito = document.querySelector('#verCarrito')
-
-// verCarrito.addEventListener('click', ()=>{
-//     // mostrarCarrito();
-// })
-
-
-// const mostrarCarrito = () => {
-// contenedorCarrito.innerHTML='';
-// listaGrupos.forEach((item)=>{
-//     const card = document.createElement('div');
-//     card.classList.add('col-xl-3', 'col-md-6', 'col-xs-12')
-//     card.innerHTML = `
-//     <div class = 'card'>
-//     <div class = 'card-body'>
-//     <h5> class = 'card-title'> ${item.nombre} </h5>
-//     <h5> class = 'card-text'> ${item.precio} </h5>`
-
-//     contenedorCarrito.appendChild(card)
-// })
-// }
+`
+contenedorCarrito.appendChild(card);
+    })
+}
