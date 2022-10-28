@@ -465,8 +465,6 @@ if (localStorage.getItem('darkKey') === 'true') {
     document.body.classList.remove('modoPantalla');
 };
 
-
-
 // ----------------------------------------------------------------------Carrito
 
 
@@ -486,14 +484,53 @@ const Rolling = new listaMusica (3,'Rolling Stone', 900)
 
 const listaGrupos = [clapton, Rolling, Beatles]
 
-
 let listaCarrito = []; // Carrito se inicializa vacio porque inicia con 0 productos
 
 
+function agregarCarrito() {
+    listaCarrito.push(Beatles.precio)
+    console.log(listaCarrito);
+}
 
+function agregarCarrito2() {
+    listaCarrito.push(Rolling.precio)
+    console.log(listaCarrito);
+}
 
+function agregarCarrito3() {
+    listaCarrito.push(clapton.precio)
+    console.log(listaCarrito);
+}
 
 const btnCarrito = document.querySelector('#btnCarrito')
-const btnCarrito2 = document.querySelector('#btnCarrito2')
-const btnCarrito3 = document.querySelector('#btnCarrito3')
+btnCarrito.addEventListener('click', agregarCarrito)
 
+const btnCarrito2 = document.querySelector('#btnCarrito2')
+btnCarrito2.addEventListener('click', agregarCarrito2)
+
+const btnCarrito3 = document.querySelector('#btnCarrito3')
+btnCarrito3.addEventListener('click', agregarCarrito3)
+
+// const contenedorCarrito = document.querySelector('#contenedorCarrito')
+
+// const verCarrito = document.querySelector('#verCarrito')
+
+// verCarrito.addEventListener('click', ()=>{
+//     // mostrarCarrito();
+// })
+
+
+// const mostrarCarrito = () => {
+// contenedorCarrito.innerHTML='';
+// listaGrupos.forEach((item)=>{
+//     const card = document.createElement('div');
+//     card.classList.add('col-xl-3', 'col-md-6', 'col-xs-12')
+//     card.innerHTML = `
+//     <div class = 'card'>
+//     <div class = 'card-body'>
+//     <h5> class = 'card-title'> ${item.nombre} </h5>
+//     <h5> class = 'card-text'> ${item.precio} </h5>`
+
+//     contenedorCarrito.appendChild(card)
+// })
+// }
