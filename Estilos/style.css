@@ -2,6 +2,7 @@
 padding: 0;
 margin: 0;
 box-sizing: border-box;
+list-style: none;
 }
 
 
@@ -9,12 +10,53 @@ body{
 
     background-color: #401212;
 }
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card-text{
+    color: black;
+}
+.playButton{
+    display: hidden;
+    font-size: 30px;
+}
 
+.playButton:hover{
+    font-size: 30px;
+    display: block;
+}
 
-.card {
-    margin: auto auto;
+.contenedorPlataforma{
+
+    display: flex;
+    flex-direction: column;
 
 }
+.contenedorPlataforma_seccion{
+    display: flex;
+    flex-direction: column;
+}
+
+
+    .registroTit{
+
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+.contenedorRegistro{
+
+margin-left: 20px ;
+margin-right: 20px ;
+
+}
+
+
+
 .contenedorCard {
 margin: 12rem auto
 ;
@@ -35,6 +77,13 @@ color: white;
 
 .material-symbols-outlined{
     font-size: 5rem;
+}
+
+.contenedorPlataforma{
+
+    display: flex;
+    flex-direction: column;
+
 }
 
 
@@ -59,10 +108,164 @@ h1, p{color: white;}
     .contenedorForm{
         width: 50%;
 
-}}
+}
+
+
+
+
+
+}
 
 @media(max-width:575px){
     .contenedorForm{
         width: 80%;
+        
+}
 
-}}
+
+}
+
+
+/* mq corregido a partir de aqui, fm */
+
+@media(min-width:768px){
+
+    .contenedorRegistro{
+        margin-left: 120px ;
+        margin-right: 120px ;
+        }
+
+    .contenedorPlataforma{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .contenedorPlataforma_seccion{
+
+        display: flex;
+flex-direction: row;
+
+    }
+
+ .reproductorContenedor{
+    margin: 10rem auto;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center; 
+background-color:#5e2626;
+max-width: 550px;
+max-height: 840px;
+padding: 2rem;
+border-radius: 20px;
+box-shadow: 3px 3px 3px;
+}
+
+.contenedorBotones{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(196, 191, 191, 0.848);
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.contenedorCanciones{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: left;
+
+    padding: 0;
+    background-color: rgba(196, 191, 191, 0.848);
+border-radius: 20px;
+    
+}
+.cancionIconsContainer{
+    display: flex;
+flex-direction: row;
+margin-left: auto;
+}
+
+.cancionItem {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content:left;
+padding: 10px;
+width: 100%;
+font-size: 20px;
+}
+
+.reproductorButton{
+
+font-size: 60px;
+margin: 0;
+}
+
+.playButton {
+opacity: 0;
+    font-size: 40px;
+    color: #401212;
+}
+
+.playButton:hover{
+opacity: 100;}
+
+.contenedor{
+    margin-top: 150px;
+    flex-direction: row;
+
+}
+
+.plataformafooter{
+
+    margin-top: 190px;
+
+}
+
+}
+
+.agregarCarrito{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+    border: none;
+    background-color: rgba(196, 191, 191, 0.848);
+    border-radius: 20px;
+    padding: 20px;
+color:black;
+font-size: 25px;
+margin-left: 20px
+;
+}
+
+
+.btnPlay{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+        border: none;
+        background-color: rgba(196, 191, 191, 0.848);
+        border-radius: 20px;
+        padding-right: 25px;
+        padding-left: 25px;
+    color:black;
+    font-size: 25px;
+    }
+
+    .btnPlay p{
+
+        color:black;
+        font-size: 25px;
+        margin: 10px;
+        }
