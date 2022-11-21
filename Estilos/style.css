@@ -149,7 +149,7 @@ h1, p{color: white;}
 }
 .containerPlayer{
 
-width: 320px;
+width: 500px;
 background-color:#401212;
 border-radius: 20px;
 color:white;
@@ -157,7 +157,7 @@ box-shadow: 2px 2px 3px black;
 }
 
 .portada{
-    width: 128px;
+    width: 500px;
     height: auto;
     border-radius: .3rem;
     display: block;
