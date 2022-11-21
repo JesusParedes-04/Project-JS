@@ -60,16 +60,7 @@ if (localStorage.getItem('darkKey') === 'true') {
 
 
 
-function carritoDesplegable (){
-const contenedorCarrito = document.querySelector('#contenedorCarrito')
 
-    contenedorCarrito.innerHTML = `
-    
-
-    
-    `
-
-}
 
 
 

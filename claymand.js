@@ -1,203 +1,151 @@
+let cancionActual = null
 
-class Cancion {
-    constructor(id, banda, cancion, album, precio,) {
-        this.id = id;
-        this.banda = banda;
-        this.cancion = cancion;
-        this.album = album;
-        this.precio = precio
-        this.cantidad = 1
+//Lista de Canciones Clayderman
+const listaCanciones = [
 
+    { 
+    Album: 'Reveries',
+    portada: 'CoverReveriesRC.jpeg',
+    cancion:   'Exodus',
+    archivo:  'cancion1.mp3'
+    },
+
+    { 
+    Album: 'Richard Clayderman',
+    portada: 'CoverReveriesRC.jpeg',
+    cancion:   'Love Is Blue',
+    archivo:  'cancion2.mp3'
+    },
+
+    { 
+    Album: 'Richard Clayderman',
+    portada: '/coverRC.jpg',
+    cancion:   'Ballade for Adeline',
+    archivo:  'cancion3.mp3'
+},
+
+]
+
+
+//Enlazando con HTML
+const contenedorCanciones = document.getElementById("contenedorCanciones")
+const audioCancion = document.getElementById("audioCancion")
+const portadaAlbum = document.getElementById("portada")
+const tituloCancion = document.getElementById("tituloCancion")
+const playBtn = document.getElementById("playBtn")
+const anteriorBtn = document.getElementById("anteriorBtn")
+const siguienteBtn = document.getElementById("siguienteBtn")
+const barraProgreso = document.getElementById("barraProgreso")
+const progreso = document.getElementById("progreso")
+
+
+// barraProgreso.addEventListener("click", setProgress);
+audioCancion.addEventListener("timeupdate", updateProgress)
+
+
+//Se asigna como let porque es la canción que irá variando y nula
+siguienteBtn.addEventListener("click", () => siguienteCancion())
+anteriorBtn.addEventListener("click", () => anteriorCancion())
+
+// Cargar estructura de canciones y mostrar el listado
+function cargarCanciones() {
+    listaCanciones.forEach((cancion, indice) => {
+        const li = document.createElement("li")
+        const link = document.createElement("a")
+        link.textContent = cancion.cancion
+        link.href = "#"
+        link.addEventListener("click", ()=> cargarCancion(indice))
+        li.appendChild(link)
+        contenedorCanciones.appendChild(li)
+    })
+
+}
+
+// Cargar canción seleccionada
+function cargarCancion(indiceCancion) {
+    if (indiceCancion !== cancionActual) {
+        cancionActual = indiceCancion
+        audioCancion.src = "/tracks/" + listaCanciones[indiceCancion].archivo
+        reproducirCancion()
+        actualizarTitulo(indiceCancion)
+        actualizarPortada(indiceCancion)
+}}
+
+// Barra de progreso
+
+function updateProgress(event) {
+    const {duration, currentTime} = event.srcElement
+    const percent = (currentTime / duration) * 100
+    progreso.style.width = percent + "%" 
+    
+}
+// Reproducir canción
+function reproducirCancion() {
+    if (cancionActual !== null) {
+        togglePlay()
     }
 }
 
-const cancionUno = new Cancion(1, 'Richard Clayderman', 'Ballade Por Adeline', 'Reveries', 50,)
-const cancionDos = new Cancion(2, 'Richard Clayderman', 'Love Is Blue', 'Mejores exitos', 50)
-const cancionTres = new Cancion(3, 'Richard Clayderman', 'Exodus', 'Reveries', 50)
-
-let Clayderman = [cancionUno, cancionDos, cancionTres]
-let CarritoClayderman = []
-
-
-
-
-
-//Cargando Carrito de LS
-if (localStorage.getItem('carrito')) {
-    CarritoClayderman = JSON.parse(localStorage.getItem('carrito'))
+// Pausar canción
+function pausarcancion() {
+    audioCancion.pause()
+    togglePlay()
 }
 
-const contenedorCanciones = document.querySelector('#contenedorCanciones')
-const mostrarCarritoDinamico = () => {
-    Clayderman.forEach((cancion) => {
-        const card = document.createElement('li')
-        card.innerHTML = `
-   <li class="cancionItem">
-              
-                <div class="cancionIconsContainer">
-                    <button id="btnPlay" class="btnPlay">
-                    <span class="cancionIcons">
-                        <i class="fa-solid fa-play"></i>
-                    </span>
-                    <p> ${cancion.cancion} </p>
-                    </button>
+// Funciones de Actualizar titulo y cancion
+function actualizarPortada(indiceCancion) {
+    portadaAlbum.src = "/Imagenes/" + listaCanciones[indiceCancion].portada
+}
+function actualizarTitulo(indiceCancion) {
 
-                    <button id="agregarCarritoBtn${cancion.id}" class="agregarCarrito"> $${cancion.precio}
-                        <span class="cancionIcons">
-                            <i class="fa-solid fa-cart-plus"></i>
-                        </span>
-                    </button>
-                </div>
-            </li>
-            `
-
-contenedorCanciones.appendChild(card)
-            //Agregando canciones al Carrito
-        const agregarCarritoBtn = document.querySelector(`#agregarCarritoBtn${cancion.id}`);
-        agregarCarritoBtn.addEventListener('click', () => {
-            agregarAlCarrito(cancion.id)
-        })
-
-    })
+    Toastify({
+        text:  tituloCancion.innerText = listaCanciones[indiceCancion].cancion + ' - ' +listaCanciones[indiceCancion].Album,
+        gravity: "bottom", 
+        position: "right", 
+        style: {
+       background: "linear-gradient(to right, #730202, #401212)",
+        }
+      }).showToast();
+    
 }
 
-//Funcion agregar al Carrito:
-const agregarAlCarrito = (id) => {
-
-    const cancion = Clayderman.find((cancion) => cancion.id === id);
-    const cancionEnCarrito = CarritoClayderman.find((cancion) => cancion.id === id)
-
-    if (cancionEnCarrito) {
-        cancionEnCarrito.cantidad++;
+// Anterior canción
+function anteriorCancion() {
+    if (cancionActual > 0) {
+        cargarCancion(cancionActual - 1)
+    } else {
+        cargarCancion(listaCanciones.length - 1)
     }
-    else {
-        CarritoClayderman.push(cancion)
-        localStorage.setItem('carrito', JSON.stringify(CarritoClayderman))
+}
+
+// Siguiente canción
+function siguienteCancion() {
+    if (cancionActual < listaCanciones.length -1) {
+        cargarCancion(cancionActual + 1)
+    } else {
+        cargarCancion(0)
     }
-    calcularTotal()
 
 }
 
-mostrarCarritoDinamico()
+function togglePlay() {
+	if (audioCancion.paused){
+		toggleIcon();
+		 audioCancion.play(1);
 
-//Mostrando Carrito 
-
-const contenedorCarritoo = document.querySelector('#contenedorCarritoo');
-const verCarrito = document.querySelector('#verCarrito');
-verCarrito.addEventListener('click', () => {
-    mostrarCarrito();
-})
-
-//Funcion para mostrar carrito:
-const mostrarCarrito = () => {
-    // limpiar carrito
-    contenedorCarritoo.innerHTML = '';
-    CarritoClayderman.forEach((cancion) => {
-
-        const card2 = document.createElement('li')
-        card2.innerHTML = `
-           <li class="cancionItem">
-                    
-                        <div class="cancionIconsContainer">
-                            <button id="btnPlay" class="btnPlay mx-4">
-
-                            <p> ${cancion.cancion} </p>
-
-                            </button>
-                            <button class="btnPlay">
-                            <p> ${cancion.cantidad} </p>
-                            </button>
-
-                            <button id="eliminarCarritoBtn${cancion.id}" class="agregarCarrito"> $${cancion.precio}
-                                Eliminar Cancion <span class="cancionIcons">
-                                    <i class="fa-solid fa-cart-plus"></i>
-                                </span>
-                            </button>
-                        </div>
-                    </li>
-                    `
-        contenedorCarritoo.appendChild(card2);
-
-        //Eliminar producto del carrito 
-
-        const eliminarCarritoBtn = document.querySelector(`#eliminarCarritoBtn${cancion.id}`)
-        eliminarCarritoBtn.addEventListener('click', () => {
-            eliminarDelCarrito(cancion.id);
-        })
-    })
-}
-
-//Funcion eliminar cancion del carrito
-
-const eliminarDelCarrito = (id) => {
-    const cancion = CarritoClayderman.find((cancion) => cancion.id === id)
-    const indice = CarritoClayderman.indexOf(cancion);
-    CarritoClayderman.splice(indice, 1)
-    mostrarCarrito();
-
-    //LS
-
-    localStorage.setItem('carrito', JSON.stringify(CarritoClayderman))
-
+	} else {
+		toggleIcon();
+		return audioCancion.pause();
+	}
 }
 
 
-const vaciarCarrito = document.querySelector('#vaciarCarrito')
-vaciarCarrito.addEventListener('click', () => {
-    eliminarTodoCarrito()
-})
+function toggleIcon() {
+    playBtn.classList.toggle("fa-pause");
+    playBtn.classList.toggle("fa-play");
+ }
 
-// Funcion eliminar todo carrito
+//siguiente canción cuando se acaba la actual
+audioCancion.addEventListener("ended", () => siguienteCancion())
 
-const eliminarTodoCarrito = () => {
-    CarritoClayderman = []
-    mostrarCarrito()
-    //LS
-    localStorage.clear
-}
-
-
-//Mensaje con total de compra
-
-const totalCarrito = document.querySelector('#totalCarrito')
-const calcularTotal = () => {
-
-    let totalCompra = 0;
-    CarritoClayderman.forEach((cancion) => {
-        totalCompra += cancion.precio * cancion.cantidad
-    })
-
-    totalCarrito.innerHTML = `Total: $${totalCompra}`;
-
-}
-
-
-
-
-
-
-
-//Reproductor
-
-const playCancion = document.getElementsByClassName('play')
-const stopCancion = document.getElementsByClassName('pause')
-let audio
-
-
-
-for(elemento of playCancion){
-elemento.addEventListener('click', ()=>{
-let elementSong = this.getAttribute('id')
-audio = new Audio(`/track/${elementSong}.mp3`)
-audio.play()
-})
-}
-
-for(song of stopCancion){
-    song.addEventListener('click', ()=>{
-        audio.pause()
-    })
-}
-
-
-
+cargarCanciones()

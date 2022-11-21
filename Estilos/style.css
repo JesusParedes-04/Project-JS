@@ -90,8 +90,12 @@ color: white;
 /* Modo oscuro */
 
 .modoPantalla{
-background-color: black;
+background-color: rgb(32, 12, 12);
+;
 }
+
+
+
 
 h1, p{color: white;}
 
@@ -110,10 +114,6 @@ h1, p{color: white;}
 
 }
 
-
-
-
-
 }
 
 @media(max-width:575px){
@@ -122,150 +122,97 @@ h1, p{color: white;}
         
 }
 
-
 }
-
-
-/* mq corregido a partir de aqui, fm */
 
 @media(min-width:768px){
 
-    .contenedorRegistro{
-        margin-left: 120px ;
-        margin-right: 120px ;
-        }
 
-    .contenedorPlataforma{
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-    }
-    .contenedorPlataforma_seccion{
-
-        display: flex;
-flex-direction: row;
-
-    }
-
- .reproductorContenedor{
-    margin: 10rem auto;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center; 
-background-color:#5e2626;
-max-width: 550px;
-max-height: 840px;
-padding: 2rem;
-border-radius: 20px;
-box-shadow: 3px 3px 3px;
-}
-
-.contenedorBotones{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    text-align: center;
-    background-color: rgba(196, 191, 191, 0.848);
-    width: 100%;
-    border-radius: 20px;
-    margin-top: 20px;
-}
-
-.contenedorCanciones{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: flex-start;
-    justify-content: left;
-
-    padding: 0;
-    background-color: rgba(196, 191, 191, 0.848);
-border-radius: 20px;
+    .contenedor{
+        margin-top: 150px;
+        flex-direction: row;
     
-}
-.cancionIconsContainer{
-    display: flex;
-flex-direction: row;
-margin-left: auto;
-}
-
-.cancionItem {
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content:left;
-padding: 10px;
-width: 100%;
-font-size: 20px;
-}
-
-.reproductorButton{
-
-font-size: 60px;
-margin: 0;
-}
-
-.playButton {
-opacity: 0;
-    font-size: 40px;
-    color: #401212;
-}
-
-.playButton:hover{
-opacity: 100;}
-
-.contenedor{
-    margin-top: 150px;
-    flex-direction: row;
-
-}
-
-.plataformafooter{
-
-    margin-top: 190px;
-
-}
-
-}
-
-.agregarCarrito{
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-    border: none;
-    background-color: rgba(196, 191, 191, 0.848);
-    border-radius: 20px;
-    padding: 20px;
-color:black;
-font-size: 25px;
-margin-left: 20px
-;
-}
-
-
-.btnPlay{
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: center;
-        border: none;
-        background-color: rgba(196, 191, 191, 0.848);
-        border-radius: 20px;
-        padding-right: 25px;
-        padding-left: 25px;
-    color:black;
-    font-size: 25px;
     }
+    
+    .plataformafooter{
+        margin-top: 190px;
+    }
+    
+    }
+    
 
-    .btnPlay p{
 
-        color:black;
-        font-size: 25px;
-        margin: 10px;
-        }
+/* reproductor */
+
+.reproductorMain{
+
+    margin: 190px
+}
+.containerPlayer{
+
+width: 320px;
+background-color:#401212;
+border-radius: 20px;
+color:white;
+box-shadow: 2px 2px 3px black;
+}
+
+.portada{
+    width: 128px;
+    height: auto;
+    border-radius: .3rem;
+    display: block;
+    margin: 0 auto 1rem auto;
+}
+
+/* Barra de progreso */
+
+.barraProgreso {
+    height: .6rem;
+    background-color: lightgray;
+    margin-bottom: 1rem;
+}
+
+.progreso {
+    background-color: goldenrod;
+    width: 0;
+    height: 100%;
+}
+
+
+/* controles reproductor */
+.controles {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+}
+
+.controles button {
+    background-color: transparent;
+    border: none;
+}
+
+.controles i {
+    font-size: 1.7rem;
+    color: white;
+}
+
+/* Songs */
+.contenedorCanciones {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.contenedorCanciones li {
+    margin-bottom: 1rem;
+}
+
+.contenedorCanciones a {
+    color: lightgray;
+    text-decoration: none;
+}
+
+.contenedorCanciones a.active {
+    color: rebeccapurple;
+    font-weight: bold;
+}

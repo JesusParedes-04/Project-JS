@@ -2,32 +2,32 @@
 const grupos = [
     {
         Artista: 'Eric clapton',
-        imagen: 'https://dummyimage.com/300x200/000/fff',
-        infoArtista: 'lorem',
-        enlace: './listaClaymand.html',
+        imagen: '/Imagenes/derek.jpg',
+        infoArtista: 'Las mejores canciones y composiciones de Slowhand y su carrera como solista y su paso por The Cream, Yardbirds, etc. ',
+        enlace: './clapton.html',
 
     },
 
     {
         Artista: 'Richard Clayderman',
-        imagen: 'https://dummyimage.com/300x200/000/fff',
-        infoArtista: 'lorem',
-        enlace: './listaClaymand.html',
+        imagen: '/Imagenes/coverRC.jpg',
+        infoArtista: 'Lo mejor del pianista francés especializado en música ligera y uno de los más exitosos a nivel mundial',
+        enlace: './Claymand.html',
     },
 
     {
         Artista: 'The Beatles',
-        imagen: 'https://dummyimage.com/300x200/000/fff',
-        infoArtista: 'lorem',
-        enlace: './listaClaymand.html',
+        imagen: '/Imagenes/letitbe.jpg',
+        infoArtista: 'Los mejor de una de las bandas más importantes del movimiento contracultural de la década de 1960 y de la historia de la música.',
+        enlace: './beatles.html',
 
     },
 
     {
         Artista: 'Electric Light Orchestra',
-        imagen: 'https://dummyimage.com/300x200/000/fff',
-        infoArtista: 'lorem',
-        enlace: './listaClaymand.html',
+        imagen: '/Imagenes/OIP.jpg',
+        infoArtista: 'Lo mejor del grupo británico de rock sinfónico y rock progresivo oriunda de Birmingham y liderado por el músico Jeff Lynne.',
+        enlace: './elo.html',
     },
 ]
 
