@@ -39,15 +39,11 @@ const barraProgreso = document.getElementById("barraProgreso")
 const progreso = document.getElementById("progreso")
 
 
-// barraProgreso.addEventListener("click", setProgress);
 audioCancion.addEventListener("timeupdate", updateProgress)
-
-
-//Se asigna como let porque es la canción que irá variando y nula
 siguienteBtn.addEventListener("click", () => siguienteCancion())
 anteriorBtn.addEventListener("click", () => anteriorCancion())
 
-// Cargar estructura de canciones y mostrar el listado
+//Mostrar canciones
 function cargarCanciones() {
     listaCanciones.forEach((cancion, indice) => {
         const li = document.createElement("li")
@@ -61,7 +57,7 @@ function cargarCanciones() {
 
 }
 
-// Cargar canción seleccionada
+
 function cargarCancion(indiceCancion) {
     if (indiceCancion !== cancionActual) {
         cancionActual = indiceCancion
@@ -72,7 +68,6 @@ function cargarCancion(indiceCancion) {
 }}
 
 // Barra de progreso
-
 function updateProgress(event) {
     const {duration, currentTime} = event.srcElement
     const percent = (currentTime / duration) * 100
@@ -131,7 +126,7 @@ function siguienteCancion() {
 function togglePlay() {
 	if (audioCancion.paused){
 		toggleIcon();
-		 audioCancion.play(1);
+		return audioCancion.play();
 
 	} else {
 		toggleIcon();

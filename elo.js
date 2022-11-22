@@ -131,7 +131,7 @@ function siguienteCancion() {
 function togglePlay() {
 	if (audioCancion.paused){
 		toggleIcon();
-		 audioCancion.play(1);
+		return audioCancion.play();
 
 	} else {
 		toggleIcon();

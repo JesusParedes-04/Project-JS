@@ -16,6 +16,7 @@ body{
     align-items: center;
     justify-content: center;
 }
+
 .card-text{
     color: black;
 }
@@ -141,7 +142,6 @@ h1, p{color: white;}
     
 
 
-/* reproductor */
 
 .reproductorMain{
 
@@ -164,7 +164,6 @@ box-shadow: 2px 2px 3px black;
     margin: 0 auto 1rem auto;
 }
 
-/* Barra de progreso */
 
 .barraProgreso {
     height: .6rem;
@@ -179,11 +178,11 @@ box-shadow: 2px 2px 3px black;
 }
 
 
-/* controles reproductor */
 .controles {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 1rem;
+    
 }
 
 .controles button {
@@ -196,7 +195,6 @@ box-shadow: 2px 2px 3px black;
     color: white;
 }
 
-/* Songs */
 .contenedorCanciones {
     margin: 0;
     padding: 0;
@@ -205,6 +203,8 @@ box-shadow: 2px 2px 3px black;
 
 .contenedorCanciones li {
     margin-bottom: 1rem;
+    margin-left: 1rem;
+    padding-bottom: 1rem;
 }
 
 .contenedorCanciones a {
@@ -212,7 +212,8 @@ box-shadow: 2px 2px 3px black;
     text-decoration: none;
 }
 
-.contenedorCanciones a.active {
-    color: rebeccapurple;
-    font-weight: bold;
+#tituloCancion {
+
+margin-left: 1rem;
+
 }

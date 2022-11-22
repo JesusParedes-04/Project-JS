@@ -18,11 +18,11 @@ if (btnAutenticado) {
 
     btnAutenticado.addEventListener('click', () => {
 
-
         if (inputAcceso.value === emailAcceso && inputPassword.value === passwordAcceso) {
             localStorage.setItem('email', 'jesus@hotmail.com');
             localStorage.setItem('password', 1234);
             window.location = "plataforma.html"
+
         } else {
             Swal.fire({
                 icon: 'error',

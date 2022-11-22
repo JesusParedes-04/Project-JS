@@ -39,11 +39,7 @@ const barraProgreso = document.getElementById("barraProgreso")
 const progreso = document.getElementById("progreso")
 
 
-// barraProgreso.addEventListener("click", setProgress);
 audioCancion.addEventListener("timeupdate", updateProgress)
-
-
-//Se asigna como let porque es la canción que irá variando y nula
 siguienteBtn.addEventListener("click", () => siguienteCancion())
 anteriorBtn.addEventListener("click", () => anteriorCancion())
 
@@ -61,7 +57,6 @@ function cargarCanciones() {
 
 }
 
-// Cargar canción seleccionada
 function cargarCancion(indiceCancion) {
     if (indiceCancion !== cancionActual) {
         cancionActual = indiceCancion
@@ -70,8 +65,6 @@ function cargarCancion(indiceCancion) {
         actualizarTitulo(indiceCancion)
         actualizarPortada(indiceCancion)
 }}
-
-// Barra de progreso
 
 function updateProgress(event) {
     const {duration, currentTime} = event.srcElement
@@ -109,7 +102,7 @@ function actualizarTitulo(indiceCancion) {
     
 }
 
-// Anterior canción
+// Botones anterior y posterior
 function anteriorCancion() {
     if (cancionActual > 0) {
         cargarCancion(cancionActual - 1)
@@ -118,28 +111,28 @@ function anteriorCancion() {
     }
 }
 
-// Siguiente canción
 function siguienteCancion() {
     if (cancionActual < listaCanciones.length -1) {
         cargarCancion(cancionActual + 1)
     } else {
         cargarCancion(0)
     }
-
 }
 
 function togglePlay() {
-	if (audioCancion.paused){
-		toggleIcon();
-		 audioCancion.play(1);
 
+	if (audioCancion.paused){  
+		toggleIcon();
+	 return audioCancion.play();
 	} else {
 		toggleIcon();
 		return audioCancion.pause();
 	}
-}
+
+        }
 
 
+console.log(audioCancion)
 function toggleIcon() {
     playBtn.classList.toggle("fa-pause");
     playBtn.classList.toggle("fa-play");
